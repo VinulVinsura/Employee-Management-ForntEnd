@@ -1,5 +1,6 @@
 
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -7,23 +8,26 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-manage-emp',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,HttpClientModule],
   templateUrl: './manage-emp.component.html',
   styleUrl: './manage-emp.component.css'
 })
 export class ManageEmpComponent {
 
+  constructor(private http:HttpClient){}
 
   public employee:any={
     firstName:"",
     lastName:"",
     email:"",
-    depId:"",
-    roleId:""
+    dep_id:"",
+    role_id:""
   }
 
   addEmployee(){
-    console.log(this.employee);
+    this.http.post("http://localhost:9000/emp-controller/add-employee",this.employee).subscribe((data)=>{
+      console.log(data);
+    })
   }
 
     
