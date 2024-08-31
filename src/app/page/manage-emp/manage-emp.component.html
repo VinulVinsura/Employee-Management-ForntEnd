@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 mt-5">
+            <h1 class="fw-bold text-center  p-3">Add Employee</h1>
+            <form class="needs-validation shadow p-5 rounded-4 mt-3">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label fw-bold">First name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required />
+                        <div class="invalid-feedback">Valid first name is required.</div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="lastName" class="form-label fw-bold">Last name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required />
+                        <div class="invalid-feedback">Valid last name is required.</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="email" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com" />
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="col-5">
+                        <label for="country" class="form-label fw-bold">Department ID</label>
+                        <select class="form-select" id="depID" required>
+                            <option value="">Choose...</option>
+                            <option value=100>100-Stat Department</option>
+                            <option value=101>101-CS Department</option>
+                            <option value=102>102-Chem Department</option>
+                            <option value=103>103-Physice Department</option>
+                            <option value=104>104-ECS Department</option>
+                            <option value=105>105-MIT Department</option>
+
+                        </select>
+                        
+                    </div>
+                    <div class="col-5"></div>
+
+                    <div class="col-5">
+                        <label for="state" class="form-label fw-bold">Role ID</label>
+                        <select class="form-select" id="state" required>
+                            <option value="">Choose...</option>
+                            <option value=201>201</option>
+                            <option value=301>301</option>
+                            <option value=401>401</option>
+                            <option value=501>501</option>
+                            <option value=601>601</option>
+
+                        </select>
+                        <div class="invalid-feedback">Please provide a valid state.</div>
+                    </div>
+
+
+                </div>
+
+                <button class="btn w-25 btn-success fw-bold shadow mt-4 p-1" type="submit">
+                    Add Employee
+                </button>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
