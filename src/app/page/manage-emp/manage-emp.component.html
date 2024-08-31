@@ -3,23 +3,23 @@
         <div class="col-2"></div>
         <div class="col-8 mt-5">
             <h1 class="fw-bold text-center  p-3">Add Employee</h1>
-            <form class="needs-validation shadow p-5 rounded-4 mt-3">
+            <form class=" shadow p-5 rounded-4 mt-3">
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="firstName" class="form-label fw-bold">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required />
-                        <div class="invalid-feedback">Valid first name is required.</div>
+                        <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName" [ngModelOptions]="{standalone: true}" placeholder="" value="" required />
+                        
                     </div>
 
                     <div class="col-sm-6">
                         <label for="lastName" class="form-label fw-bold">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required />
+                        <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName"  [ngModelOptions]="{standalone: true}" placeholder="" value="" required />
                         <div class="invalid-feedback">Valid last name is required.</div>
                     </div>
 
                     <div class="col-12">
                         <label for="email" class="form-label fw-bold">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com" />
+                        <input type="email" class="form-control" id="email" [(ngModel)]="employee.email"  [ngModelOptions]="{standalone: true}" placeholder="you@example.com" />
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -27,7 +27,7 @@
 
                     <div class="col-5">
                         <label for="country" class="form-label fw-bold">Department ID</label>
-                        <select class="form-select" id="depID" required>
+                        <select class="form-select" id="depID" [(ngModel)]="employee.depId"  [ngModelOptions]="{standalone: true}" required>
                             <option value="">Choose...</option>
                             <option value=100>100-Stat Department</option>
                             <option value=101>101-CS Department</option>
@@ -43,7 +43,7 @@
 
                     <div class="col-5">
                         <label for="state" class="form-label fw-bold">Role ID</label>
-                        <select class="form-select" id="state" required>
+                        <select class="form-select" id="state" [(ngModel)]="employee.roleId"  [ngModelOptions]="{standalone: true}" required>
                             <option value="">Choose...</option>
                             <option value=201>201</option>
                             <option value=301>301</option>
@@ -58,7 +58,7 @@
 
                 </div>
 
-                <button class="btn w-25 btn-success fw-bold shadow mt-4 p-1" type="submit">
+                <button class="btn w-25 btn-success fw-bold shadow mt-4 p-1"  (click)="addEmployee()">
                     Add Employee
                 </button>
             </form>
