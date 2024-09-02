@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -26,7 +27,11 @@ export class ManageEmpComponent {
 
   addEmployee(){
     this.http.post("http://localhost:9000/emp-controller/add-employee",this.employee).subscribe((data)=>{
-      console.log(data);
+      Swal.fire({
+        title: "Employee Added Success!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
     })
   }
 
