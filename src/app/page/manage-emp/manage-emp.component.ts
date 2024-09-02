@@ -4,12 +4,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NavComponent } from "../../comman/nav/nav.component";
 
 
 @Component({
   selector: 'app-manage-emp',
   standalone: true,
-  imports: [FormsModule,CommonModule,HttpClientModule],
+  imports: [FormsModule, CommonModule, HttpClientModule, NavComponent],
   templateUrl: './manage-emp.component.html',
   styleUrl: './manage-emp.component.css'
 })
