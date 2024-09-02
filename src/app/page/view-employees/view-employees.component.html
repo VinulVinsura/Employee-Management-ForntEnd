@@ -4,7 +4,7 @@
     <div class="col-8 m-4">
       <h1 class="fw-bold text-center p-3 mb-5">View All Employee</h1>
        
-      <table class="table border p-2 table-success">
+      <table class="table border p-2">
         <tr class="border text-center bg-black text-white ">
             
             <th>ID</th>
@@ -12,14 +12,16 @@
             <th>Email</th>
             <th>Department-Id</th>
             <th>Role-Id</th>
+            <th >Option</th>
         </tr>
         <tr class="border text-center" *ngFor="let employee of employeeList; let i=index">
 
             <td>{{"EMP00"+employee.emp_id}}</td>
             <td>{{employee.firstName+" "+employee.lastName}}</td>
             <td>{{employee.email}}</td>
-            <td class="text-center">{{employee.dep_id}}</td>
-            <td class="text-center">{{employee.role_id}}</td>
+            <td>{{employee.dep_id}}</td>
+            <td>{{employee.role_id}}</td>
+            <td class="text-center"><button type="button"  (click)="deleteEmployee(employee)" class="btn bg-danger m-1"><i class="bi bi-trash3-fill"></i></button></td>
         </tr>
 
       </table>
