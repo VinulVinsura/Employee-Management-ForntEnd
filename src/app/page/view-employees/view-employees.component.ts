@@ -3,7 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { NavComponent } from "../../comman/nav/nav.component";
+import { NavComponent } from '../../comman/nav/nav.component';
 
 @Component({
   selector: 'app-view-employees',
@@ -14,6 +14,14 @@ import { NavComponent } from "../../comman/nav/nav.component";
 })
 export class ViewEmployeesComponent {
   public employeeList: any;
+  public selectEmployeeObj: any = {
+    emp_id: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    dep_id: '',
+    role_id: '',
+  };
 
   constructor(private http: HttpClient) {
     this.lodeEmployeeTable();
@@ -27,8 +35,36 @@ export class ViewEmployeesComponent {
       });
   }
 
+  selectEmployee(employee: any) {
+    this.selectEmployeeObj = {
+      emp_id: employee.emp_id,
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      email: employee.email,
+      dep_id: employee.dep_id,
+      role_id: employee.role_id,
+    };
+  }
+
+  updateEmployee() {
+    this.http
+      .post(
+        'http://localhost:9000/emp-controller/add-employee',
+        this.selectEmployeeObj
+      )
+      .subscribe((data) => {
+        Swal.fire({
+          title: 'UPDATE SUCCESS !',
+          text: 'You clicked the button!',
+          icon: 'success',
+        });
+        this.lodeEmployeeTable();
+        
+      });
+    
+  }
+
   deleteEmployee(employee: any) {
-   
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -40,13 +76,15 @@ export class ViewEmployeesComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.http
-          .delete('http://localhost:9000/emp-controller/delete-employee/'+employee.emp_id)
+          .delete(
+            'http://localhost:9000/emp-controller/delete-employee/' +
+              employee.emp_id
+          )
           .subscribe((data) => {
-            
             this.lodeEmployeeTable();
           });
         Swal.fire({
-          title: `${employee.firstName+" "+employee.lastName} Deleted!`,
+          title: `${employee.firstName + ' ' + employee.lastName} DELETED!`,
           text: 'Your file has been deleted.',
           icon: 'success',
         });

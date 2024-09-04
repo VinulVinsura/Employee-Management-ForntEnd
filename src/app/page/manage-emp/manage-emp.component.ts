@@ -29,7 +29,7 @@ export class ManageEmpComponent {
   addEmployee(){
     this.http.post("http://localhost:9000/emp-controller/add-employee",this.employee).subscribe((data)=>{
       Swal.fire({
-        title: "Employee Added Success!",
+        title: "EMPLOYEE ADDED SUCCESS !",
         text: "You clicked the button!",
         icon: "success"
       });
